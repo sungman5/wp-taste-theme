@@ -1,0 +1,140 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@font-face {
+    font-family: 'EF_jejudoldam';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#give-taste {
+    font-family: 'Pretendard Variable', sans-serif;
+    font-weight: 600;
+    color: #000;
+}
+
+.fruit {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    opacity: 1;
+    transform: scale(1);
+    will-change: transform, opacity;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.gt-section {
+    position: relative;
+    border-bottom: 1px solid #000;
+}
+
+
+.gt-msg-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+    width: 100%;
+}
+
+#bubble-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+}
+
+.gt-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    text-align: center;
+    font-size: 3rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+.gt-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+#gt-0 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #FDE7EB, #FFFFFF);
+}
+
+.gt-title{
+    font-family: 'EF_jejudoldam', sans-serif;
+    font-size: 8rem;
+    font-weight: 400;
+    text-align: center;
+    line-height: 120%;
+}
+
+.gt-title > span {
+    color: orangered;
+}
+
+.gt-scroll {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#gt-1 {
+    background: linear-gradient(to bottom, #ffffff, #F3E5AB);
+}
+
+#gt-2 .gt-msg-background:nth-child(1) {
+    background: linear-gradient(to bottom, #F3E5AB, #FFD600);
+}
+
+#gt-2 .gt-msg-background:nth-child(2) {
+    background: linear-gradient(to bottom, #FFD600, #C8F4D1);
+}
+
+#gt-2 .gt-msg-background:nth-child(3) {
+    background: linear-gradient(to bottom, #C8F4D1, #ffffff);
+}
+
+#gt-3 {
+
+}
+
+#gt-4 .gt-msg-background:nth-child(1) {
+    background: linear-gradient(to bottom, #ffffff, #BCE7F0);
+}
+
+#gt-4 .gt-msg-background:nth-child(2) {
+    background: linear-gradient(to bottom, #BCE7F0, #00E5A0);
+}
+
+#gt-4 .gt-msg-background:nth-child(3) {
+    background: linear-gradient(to bottom, #00E5A0, #D4F8E8);
+}
+
+#gt-4 .gt-msg-background:nth-child(4) {
+    background: linear-gradient(to bottom, #D4F8E8, #ffffff);
+}
+
+#gt-4 .gt-msg-background:nth-child(4) .gt-message {
+    font-family: 'EF_jejudoldam', sans-serif;
+    font-size: 4rem;
+    font-weight: 400;
+    text-align: center;
+    line-height: 120%;
+}

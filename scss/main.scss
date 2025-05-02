@@ -1,0 +1,261 @@
+/** @format */
+
+* {
+  color: #000;
+  a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: $primary;
+    text-decoration-thickness: 2px; /* 밑줄 두께를 3px로 설정 */
+    // text-decoration-style: dashed;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+html {
+  font-family: $noto;
+  font-size: 18px;
+}
+
+body {
+  width: 100%;
+  max-width: 768px;
+  background-color: #fff;
+  line-height: 160%;
+  margin: auto;
+}
+
+.wrap {
+  padding: 32px;
+  @include respond($tablet) {
+    padding: 32px 0;
+  }
+}
+
+body.opend_menu {
+  overflow: hidden;
+}
+
+.site-header {
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .mobile_nav_open,
+    .mobile_nav_close {
+      width: 32px;
+      @include respond($tablet) {
+        display: none;
+      }
+    }
+    .web_nav {
+      display: none;
+      @include respond($tablet) {
+        display: block;
+      }
+    }
+    .mobile_nav {
+      transform: translateX(-100%);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to right, white 95%, #f9f9f9 100%);
+      padding: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      .mobile_nav_ul {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        li a {
+          font-size: 24px;
+        }
+      }
+    }
+    .site-title-link {
+      text-decoration: none;
+      .site-title {
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.introdution {
+  h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  p {
+    margin-bottom: 24px;
+  }
+}
+
+#menu-primary-menu {
+  display: flex;
+  gap: 32px;
+  .menu-item {
+    font-size: 24px;
+    a {
+      color: #000;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 8px;
+        text-decoration-color: $primary;
+        text-decoration-thickness: 3px; /* 밑줄 두께를 3px로 설정 */
+      }
+    }
+  }
+  .current-menu-item,
+  .current-post-parent {
+    a {
+      text-decoration: underline;
+      text-underline-offset: 8px;
+      text-decoration-color: $primary;
+      text-decoration-thickness: 3px; /* 밑줄 두께를 3px로 설정 */
+    }
+  }
+}
+
+// content-list
+.category-name {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.article-list {
+  margin-bottom: 24px;
+}
+.article-item {
+  display: flex;
+  gap: 32px;
+  .date {
+    color: #888;
+  }
+}
+
+// single
+
+#back-link {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 15px;
+  @include respond($tablet) {
+    font-size: 18px;
+  }
+}
+
+.single-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  .single-header {
+    .single-title {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 100%;
+      margin-bottom: 16px;
+      @include respond($tablet) {
+        font-size: 48px;
+      }
+    }
+    .single-date {
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: #888;
+      font-weight: 400;
+      @include respond($tablet) {
+        font-size: 18px;
+      }
+    }
+    .single-excerpt {
+      font-size: 15px;
+      color: #888;
+      font-weight: 400;
+      line-height: 150%;
+      @include respond($tablet) {
+        font-size: 18px;
+      }
+    }
+  }
+  .single-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-size: 16px;
+    line-height: 150%;
+    @include respond($tablet) {
+      font-size: 18px;
+      line-height: inherit;
+    }
+  }
+}
+
+// footer
+
+.site-footer {
+  border-top: 1px solid #d1d1d1;
+  .footer-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    .footer-menu {
+      display: flex;
+      gap: 16px;
+      li {
+        a {
+          font-size: 15px;
+          color: #000;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-color: $primary;
+            text-decoration-thickness: 3px; /* 밑줄 두께를 3px로 설정 */
+          }
+        }
+      }
+      .current-menu-item,
+      .current-post-parent {
+        a {
+          text-decoration: underline;
+          text-underline-offset: 4px;
+          text-decoration-color: $primary;
+          text-decoration-thickness: 3px; /* 밑줄 두께를 3px로 설정 */
+        }
+      }
+    }
+    #back-to-top {
+      font-size: 15px;
+    }
+  }
+  .copyright {
+    font-size: 14px;
+  }
+}
+
+.social-icon {
+  width: 32px;
+  border-radius: 4px;
+}
+
+// page template
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  li {
+    list-style: disc;
+    margin-left: 20px;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "walter",
+  "version": "1.0.0",
+  "description": "for my blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass" : "sass ./scss/style.scss style.css --no-source-map --watch --style=compressed"
+  },
+  "author": "sungman5",
+  "license": "ISC"
+}

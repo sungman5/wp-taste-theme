@@ -1,0 +1,19 @@
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
+$noto: "Noto Sans KR", sans-serif;
+
+
+// colors
+$primary : #36e281;
+$font: #14171A;
+
+$mobile : 390px;
+$tablet : 768px;
+
+@mixin respond($size){
+    @media (min-width: $size) {
+        @content;
+    }
+}
