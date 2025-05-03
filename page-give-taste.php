@@ -36,7 +36,10 @@
         </div>
     </section>
     <section class="gt-section" id="gt-1">
-        유튜브 영상 임베드
+        <iframe width="100%" height="auto" src="https://www.youtube.com/embed/r5WLXZspD1M?si=rhAQGLEEIDv3gAdQ"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>
     <section class="gt-section" id="gt-2">
         <div class="gt-msg-background">
@@ -77,7 +80,44 @@
         </div>
     </section>
     <section class="gt-section" id="gt-5">
-        스티커
+        <ul class="gt-check-sticker">
+            <li>
+                <label class="gt-sticker-btn" for="gt-hope">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/give-taste/sticker_1.png" alt="">
+                </label>
+                <input class="gt-checkbox" type="checkbox" id="gt-hope">
+            </li>
+            <li>
+                <label class="gt-sticker-btn" for="gt-thanks">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/give-taste/sticker_2.png" alt="">
+                </label>
+                <input class="gt-checkbox" type="checkbox" id="gt-thanks">
+            </li>
+            <li>
+                <label class="gt-sticker-btn" for="gt-cheer">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/give-taste/sticker_3.png" alt="">
+                </label>
+                <input class="gt-checkbox" type="checkbox" id="gt-cheer">
+            </li>
+            <li>
+                <label class="gt-sticker-btn" for="gt-responsibility">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/give-taste/sticker_4.png" alt="">
+                </label>
+                <input class="gt-checkbox" type="checkbox" id="gt-responsibility">
+            </li>
+            <li>
+                <label class="gt-sticker-btn" for="gt-compassion">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/give-taste/sticker_5.png" alt="">
+                </label>
+                <input class="gt-checkbox" type="checkbox" id="gt-compassion">
+            </li>
+            <li>
+                <label class="gt-sticker-btn" for="gt-happy">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/give-taste/sticker_6.png" alt="">
+                </label>
+                <input class="gt-checkbox" type="checkbox" id="gt-happy">
+            </li>
+        </ul>
     </section>
     <section class="gt-section" id="gt-6">
         기부하기 버튼

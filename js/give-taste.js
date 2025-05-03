@@ -112,6 +112,7 @@
     }
 
     resizeCanvas();
+
     window.addEventListener('resize', resizeCanvas);
 
     function createBubble() {
@@ -276,6 +277,8 @@
 
 
     window.addEventListener('scroll', gt_4_animation);
+
+
 
 
 })();

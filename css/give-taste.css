@@ -14,7 +14,7 @@
 }
 
 .fruit {
-    position: absolute;
+    position: fixed;
     width: 40px;
     height: 40px;
     pointer-events: none;
@@ -26,7 +26,7 @@
 
 .gt-section {
     position: relative;
-    border-bottom: 1px solid #000;
+    /*border-bottom: 1px solid #000;*/
 }
 
 
@@ -45,7 +45,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 50;
+    z-index: 2;
 }
 
 .gt-message {
@@ -97,6 +97,18 @@
 
 #gt-1 {
     background: linear-gradient(to bottom, #ffffff, #F3E5AB);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gt-1 iframe{
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 80rem;
+    aspect-ratio: 16 / 9;
+    z-index: 50;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 #gt-2 .gt-msg-background:nth-child(1) {
@@ -137,4 +149,23 @@
     font-weight: 400;
     text-align: center;
     line-height: 120%;
+}
+
+#gt-5 .gt-check-sticker{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    z-index: 60;
+    width: 100%;
+    max-width: 64rem;
+    margin: auto;
+}
+
+#gt-5 .gt-sticker-btn{
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+#gt-5 .gt-checkbox{
+    display: none;
 }
