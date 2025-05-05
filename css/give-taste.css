@@ -1,5 +1,6 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+
 @font-face {
     font-family: 'EF_jejudoldam';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
@@ -11,6 +12,118 @@
     font-family: 'Pretendard Variable', sans-serif;
     font-weight: 600;
     color: #000;
+}
+
+/* br */
+.gt-only-mobile-show {
+    display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+    .gt-only-mobile-show {
+        display: block;
+    }
+
+    .gt-only-web-show {
+        display: none;
+    }
+}
+
+
+#give-taste a {
+    z-index: 60;
+}
+
+#gt-floating-donation-web {
+    position: fixed;
+    top: 6rem;
+    right: 3rem;
+    width: 10rem;
+    transition: 0.3s all;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/*under 1536*/
+@media only screen and (max-width: 1536px) {
+    #gt-floating-donation-web {
+        position: fixed;
+        top: 6rem;
+        right: 3rem;
+        width: 8rem;
+        transition: 0.3s all;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.gt-go-to-top {
+    position: fixed;
+    bottom: 5rem;
+    right: 3rem;
+    z-index: 69;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s all;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 375px) {
+    .gt-go-to-top {
+        right: 1rem;
+    }
+
+    .gt-go-to-top > p {
+        display: none;
+    }
+}
+
+.gt-go-to-top > p {
+    font-family: 'EF_jejudoldam', sans-serif;
+    font-weight: 400;
+}
+
+.gt-go-to-top > p {
+    font-family: 'EF_jejudoldam', sans-serif;
+    font-weight: 400;
+    transition: 0.3s all;
+}
+
+.gt-go-to-top:hover > p {
+    color: orangered;
+}
+
+.gt-go-to-top > svg {
+    transition: transform 0.3s ease;
+}
+
+.gt-go-to-top:hover > svg {
+    transform: translateY(-8px);
+}
+
+#gt-floating-donation-mobile {
+    background-color: black;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s all;
+    z-index: 80 !important;
+}
+
+#gt-floating-donation-web:hover {
+    box-shadow: 8px 8px 0 0 #f5a216;
 }
 
 .fruit {
@@ -52,12 +165,28 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -20%);
+    transform: translate(-50%, -40%);
     text-align: center;
     font-size: 3rem;
     opacity: 0;
     visibility: hidden;
     transition: 0.5s ease-in-out;
+    width: 100%;
+}
+
+/*under 1536*/
+@media only screen and (max-width: 1536px) {
+    .gt-message {
+        font-size: 2rem;
+    }
+}
+
+/*under 430*/
+@media only screen and (max-width: 430px) {
+    .gt-message {
+        padding: 0 3rem;
+        font-size: 1.5rem;
+    }
 }
 
 .gt-header {
@@ -65,8 +194,32 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
 }
+
+#gt-bf-logo-mobile {
+    display: none;
+    width: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .gt-header {
+        padding: 1rem;
+    }
+
+    #gt-bf-logo-mobile {
+        display: block;
+    }
+
+    #gt-bf-logo {
+        display: none;
+    }
+}
+
 
 #gt-0 {
     position: relative;
@@ -76,13 +229,33 @@
     background: linear-gradient(to bottom, #FDE7EB, #FFFFFF);
 }
 
-.gt-title{
+.gt-title {
     font-family: 'EF_jejudoldam', sans-serif;
     font-size: 8rem;
     font-weight: 400;
     text-align: center;
     line-height: 120%;
 }
+
+/*under 1536*/
+@media only screen and (max-width: 1536px) {
+    .gt-title {
+        font-size: 5rem;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .gt-title {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .gt-title {
+        font-size: 2rem;
+    }
+}
+
 
 .gt-title > span {
     color: orangered;
@@ -95,6 +268,51 @@
     transform: translateX(-50%);
 }
 
+.gt-scroll p {
+    margin-bottom: 1rem;
+    color: orangered;
+}
+
+.gt-scroll-gage {
+    position: relative;
+    width: 2px;
+    height: 5rem;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.gt-scroll-gage::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: orangered;
+    animation: fillGage 2s ease-in-out infinite;
+}
+
+@keyframes fillGage {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0.3;
+    }
+    30% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0.3;
+    }
+}
+
 #gt-1 {
     background: linear-gradient(to bottom, #ffffff, #F3E5AB);
     display: flex;
@@ -102,13 +320,26 @@
     align-items: center;
 }
 
-#gt-1 iframe{
+#gt-1 iframe {
     border-radius: 1rem;
     width: 100%;
     max-width: 80rem;
     aspect-ratio: 16 / 9;
     z-index: 50;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/*under 1536*/
+@media only screen and (max-width: 1536px) {
+    #gt-1 iframe {
+        max-width: 50rem;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    #gt-1 iframe {
+        border-radius: unset;
+    }
 }
 
 #gt-2 .gt-msg-background:nth-child(1) {
@@ -151,21 +382,369 @@
     line-height: 120%;
 }
 
-#gt-5 .gt-check-sticker{
+/*under 1536*/
+@media only screen and (max-width: 1536px) {
+    #gt-4 .gt-msg-background:nth-child(4) .gt-message {
+        font-size: 3rem;
+        line-height: 150%;
+    }
+}
+
+/*under 430*/
+@media only screen and (max-width: 430px) {
+    #gt-4 .gt-msg-background:nth-child(4) .gt-message {
+        font-size: 2rem;
+    }
+}
+
+/* section -5*/
+
+#gt-5 {
+    position: relative;
+}
+
+#gt-5 .gt-check-sticker {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 1.5rem;
+}
+
+#gt-5 .gt-check-sticker > p {
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: 'EF_jejudoldam', sans-serif;
+    font-weight: 400;
+}
+
+
+#gt-5 .gt-check-sticker ul {
     position: relative;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     z-index: 60;
     width: 100%;
-    max-width: 64rem;
-    margin: auto;
+    max-width: 72rem;
+    gap: 1rem;
+    margin: 0 auto 1.5rem;
 }
 
-#gt-5 .gt-sticker-btn{
+/*under 1536*/
+@media only screen and (max-width: 1536px) {
+    #gt-5 .gt-check-sticker > p {
+        /*font-size: 1.8rem;*/
+    }
+
+    #gt-5 .gt-check-sticker ul {
+        max-width: 60rem;
+    }
+
+}
+
+@media all and (max-width: 1024px) {
+
+    #gt-5 .gt-check-sticker ul {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 40rem;
+    }
+}
+
+
+@media all and (max-width: 820px) {
+    #gt-5 .gt-check-sticker > p {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/*under 430*/
+@media only screen and (max-width: 430px) {
+    #gt-5 .gt-check-sticker > p {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #gt-5 .gt-check-sticker ul {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 20rem;
+    }
+}
+
+/*under 375*/
+@media only screen and (max-width: 375px) {
+    #gt-5 .gt-check-sticker > p {
+        font-size: 1.3rem;
+        margin-bottom: 0;
+    }
+
+    #gt-5 .gt-check-sticker ul {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 15rem;
+        margin-bottom: 0;
+    }
+}
+
+
+#gt-5 .gt-sticker-btn {
     cursor: pointer;
     transition: 0.3s all;
+    position: relative;
+    display: block;
+
 }
 
-#gt-5 .gt-checkbox{
+
+.gt-sticker {
+    transition: 0.3s ease-in-out;
+}
+
+#gt-5 .gt-checkbox {
     display: none;
+}
+
+.gt-make-juice {
+    width: 100%;
+    max-width: 16rem;
+    z-index: 55;
+}
+
+#gt-username {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+#gt-make-button {
+    cursor: pointer;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    background: orange;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.gt-checked-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#gt-show-result {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #00000080;
+    z-index: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.gt-show-juice {
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.gt-show-options {
+    display: flex;
+    align-items: center;
+}
+
+.gt-show-options button {
+    flex: 1;
+    background-color: orangered;
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.gt-show-options button:first-child {
+    background-color: #C8F4D1;
+}
+
+.gt-show-options button:first-child:hover {
+    background-color: #00E5A0;
+}
+
+.gt-show-options button:last-child {
+    background-color: #ffffff;
+}
+
+
+/* section 6*/
+
+#gt-6 {
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    background: linear-gradient(to bottom, #ffffff, #BCE7F0);
+}
+
+/* General Phone */
+@media all and (max-width: 767px) {
+    #gt-6 {
+        padding: 3rem;
+    }
+}
+
+
+.gt-donation-message p {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.gt-donation-message p:last-child {
+    margin-bottom: 0;
+}
+
+#gt-6 > p:nth-child(1) {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.gt-6-caption {
+    color: #0a7aff;
+    font-weight: 400;
+}
+
+
+#gt-6 a {
+    display: block;
+    width: fit-content;
+    background: orange;
+    font-size: 1.5rem;
+    color: #000;
+    padding: 1rem 5rem;
+}
+
+
+/*under 1536*/
+@media only screen and (max-width: 1536px) {
+    #gt-6 {
+        padding: 3rem 0;
+        gap: 1.5rem;
+    }
+
+    .gt-donation-message p {
+        font-size: 1rem;
+    }
+
+    #gt-6 > p:nth-child(1) {
+        font-size: 1.5rem;
+    }
+
+    #gt-6 a {
+        font-size: 1.3rem;
+        padding: 1rem 5rem;
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .gt-donation-message p {
+        font-size: 1.5rem;
+    }
+
+    #gt-6 > p:nth-child(1) {
+        font-size: 2rem;
+    }
+
+    .gt-6-caption {
+        color: #0a7aff;
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+}
+
+@media all and (max-width: 820px) {
+    .gt-donation-message p {
+        font-size: 1.1rem;
+    }
+
+    #gt-6 > p:nth-child(1) {
+        font-size: 1.8rem;
+    }
+
+    .gt-6-caption {
+        font-size: 1rem;
+    }
+}
+
+@media all and (max-width: 430px) {
+    #gt-6 {
+        padding: 0 2rem;
+    }
+
+    .gt-donation-message p {
+        font-size: 1rem;
+    }
+
+    #gt-6 > p:nth-child(1) {
+        font-size: 1.2rem;
+    }
+
+    .gt-6-caption {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+}
+
+
+#gt-7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #BCE7F0;
+}
+
+@media all and (max-width: 820px) {
+    #gt-7 {
+        padding: 3rem;
+    }
+}
+
+
+.gt-outlinks {
+    width: 100%;
+    max-width: 50rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.gt-outlinks a {
+    background: yellow;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media all and (max-width: 430px) {
+    .gt-outlinks {
+        max-width: 20rem;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .gt-outlinks a {
+        aspect-ratio: 16 / 9;
+    }
 }
