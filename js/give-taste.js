@@ -30,7 +30,7 @@
         },
         {
             index: 4,
-            heightNum: 4,
+            heightNum: 3,
             innerHeight: 0,
             type: 'sticky',
         },
@@ -56,33 +56,20 @@
 
     // 플로팅 배너
     function showDonationBanner() {
-        const web = document.getElementById('gt-floating-donation-web');
         const scrollY = window.scrollY;
         const triggerSection = document.getElementById('gt-1')
         const mobile = document.getElementById('gt-floating-donation-mobile');
 
         if (scrollY > triggerSection.offsetTop) {
-            if (window.innerWidth > 1440) {
-                web.style.opacity = 1;
-                web.style.visibility = 'visible';
-                mobile.style.opacity = 0;
-                mobile.style.visibility = 'hidden';
-            } else {
-                mobile.style.opacity = 1;
-                mobile.style.visibility = 'visible';
-                web.style.opacity = 0;
-                web.style.visibility = 'hidden';
-            }
+            mobile.style.opacity = 1;
+            mobile.style.visibility = 'visible';
         } else {
-            web.style.opacity = 0;
-            web.style.visibility = 'hidden';
             mobile.style.opacity = 0;
             mobile.style.visibility = 'hidden';
         }
     }
 
     window.addEventListener('scroll', showDonationBanner)
-    window.addEventListener('resize', showDonationBanner)
 
 
     const giveTasteEl = document.getElementById('give-taste');
@@ -111,15 +98,15 @@
             fruit.src = src;
             fruit.classList.add('fruit');
 
-            // 초기 위치: 클릭한 위치
+            // 클릭위치
             fruit.style.left = `${centerX - 20}px`;
             fruit.style.top = `${centerY - 20}px`;
 
             document.body.appendChild(fruit);
 
-            // 폭죽처럼 날릴 방향 설정
+            // 폭죽 방향
             const angle = (Math.PI * 2 / fruitImages.length) * index;
-            const distance = Math.random() * 80 + 60; // 60~140px 사이로 튐
+            const distance = Math.random() * 80 + 60;
             const dx = Math.cos(angle) * distance;
             const dy = Math.sin(angle) * distance;
 
@@ -192,6 +179,9 @@
     function setSectionPreset() {
         console.log(sections.length)
         for (let i = 0; i < sections.length; i++) {
+            if (i === 3) {
+                continue;
+            }
             sections[i].style.height = `${sectionDatas[i].heightNum * 100}dvh`
         }
     }
@@ -199,7 +189,23 @@
     setSectionPreset();
 
 
+    // Prevent rapid scroll-triggered animations
+    let isGt2Paused = false;
+    let isGt4Paused = false;
+
+    function pauseGt2ScrollTemporarily(delay = 300) {
+        isGt2Paused = true;
+        setTimeout(() => isGt2Paused = false, delay);
+    }
+
+    function pauseGt4ScrollTemporarily(delay = 300) {
+        isGt4Paused = true;
+        setTimeout(() => isGt4Paused = false, delay);
+    }
+
     function gt_2_animation() {
+        // if (isGt2Paused) return;
+        // pauseGt2ScrollTemporarily();
         const scrollY = window.scrollY;
         const gt_2_messages = document.querySelectorAll('#gt-2 .gt-message')
         if (scrollY > sections[2].offsetTop + window.innerHeight * 0.2) {
@@ -243,17 +249,34 @@
             gt_2_messages[2].style.visibility = 'hidden';
             gt_2_messages[2].style.transform = 'translate(-50%, -40%)';
         }
-
-
     }
 
 
     window.addEventListener('scroll', gt_2_animation);
 
+
+    function showSection3() {
+        const target = document.querySelector('.gt-interview-list');
+        const triggerSection = document.getElementById('gt-3');
+        const scrollY = window.scrollY;
+        if (scrollY > triggerSection.offsetTop - window.innerHeight * 0.3) {
+            target.style.opacity = 1;
+            target.style.visibility = 'visible';
+        } else {
+            target.style.opacity = 0;
+            target.style.visibility = 'hidden';
+        }
+    }
+
+    window.addEventListener('scroll', showSection3)
+
     function gt_4_animation() {
+        // if (isGt4Paused) return;
+        // pauseGt4ScrollTemporarily();
+
         const scrollY = window.scrollY;
         const gt_4_messages = document.querySelectorAll('#gt-4 .gt-message')
-        if (scrollY > sections[4].offsetTop + window.innerHeight * 0.2) {
+        if (scrollY > sections[4].offsetTop + window.innerHeight * 0.5) {
             gt_4_messages[0].style.opacity = 0;
             gt_4_messages[0].style.visibility = 'hidden';
             gt_4_messages[0].style.transform = 'translate(-50%, -70%)';
@@ -267,11 +290,11 @@
             gt_4_messages[0].style.transform = 'translate(-50%, -40%)';
         }
 
-        if (scrollY > sections[4].offsetTop + window.innerHeight * 1.2) {
+        if (scrollY > sections[4].offsetTop + window.innerHeight * 1.5) {
             gt_4_messages[1].style.opacity = 0;
             gt_4_messages[1].style.visibility = 'hidden';
             gt_4_messages[1].style.transform = 'translate(-50%, -70%)';
-        } else if (scrollY > sections[4].offsetTop + window.innerHeight * 0.2) {
+        } else if (scrollY > sections[4].offsetTop + window.innerHeight * 0.5) {
             gt_4_messages[1].style.opacity = 1;
             gt_4_messages[1].style.visibility = 'visible';
             gt_4_messages[1].style.transform = 'translate(-50%, -50%)';
@@ -281,11 +304,11 @@
             gt_4_messages[1].style.transform = 'translate(-50%, -40%)';
         }
 
-        if (scrollY > sections[4].offsetTop + window.innerHeight * 2.2) {
+        if (scrollY > sections[4].offsetTop + window.innerHeight * 2.3) {
             gt_4_messages[2].style.opacity = 0;
             gt_4_messages[2].style.visibility = 'hidden';
             gt_4_messages[2].style.transform = 'translate(-50%, -70%)';
-        } else if (scrollY > sections[4].offsetTop + window.innerHeight * 1.2) {
+        } else if (scrollY > sections[4].offsetTop + window.innerHeight * 1.5) {
             gt_4_messages[2].style.opacity = 1;
             gt_4_messages[2].style.visibility = 'visible';
             gt_4_messages[2].style.transform = 'translate(-50%, -50%)';
@@ -295,19 +318,19 @@
             gt_4_messages[2].style.transform = 'translate(-50%, -40%)';
         }
 
-        if (scrollY > sections[4].offsetTop + window.innerHeight * 3.2) {
-            gt_4_messages[3].style.opacity = 0;
-            gt_4_messages[3].style.visibility = 'hidden';
-            gt_4_messages[3].style.transform = 'translate(-50%, -70%)';
-        } else if (scrollY > sections[4].offsetTop + window.innerHeight * 2.2) {
-            gt_4_messages[3].style.opacity = 1;
-            gt_4_messages[3].style.visibility = 'visible';
-            gt_4_messages[3].style.transform = 'translate(-50%, -50%)';
-        } else {
-            gt_4_messages[3].style.opacity = 0;
-            gt_4_messages[3].style.visibility = 'hidden';
-            gt_4_messages[3].style.transform = 'translate(-50%, -40%)';
-        }
+        // if (scrollY > sections[4].offsetTop + window.innerHeight * 3.2) {
+        //     gt_4_messages[3].style.opacity = 0;
+        //     gt_4_messages[3].style.visibility = 'hidden';
+        //     gt_4_messages[3].style.transform = 'translate(-50%, -70%)';
+        // } else if (scrollY > sections[4].offsetTop + window.innerHeight * 2.2) {
+        //     gt_4_messages[3].style.opacity = 1;
+        //     gt_4_messages[3].style.visibility = 'visible';
+        //     gt_4_messages[3].style.transform = 'translate(-50%, -50%)';
+        // } else {
+        //     gt_4_messages[3].style.opacity = 0;
+        //     gt_4_messages[3].style.visibility = 'hidden';
+        //     gt_4_messages[3].style.transform = 'translate(-50%, -40%)';
+        // }
     }
 
 
@@ -349,7 +372,7 @@
 
     function makeJuice() {
         makeBtn.addEventListener('click', () => {
-            username = nameInput.value;
+            // username = nameInput.value;
             const sortedCombo = checkedSticker.slice().sort().join(',');
 
             if (checkedSticker.length === 3) {
@@ -368,6 +391,24 @@
     }
 
     makeJuice();
+
+    function downloadJuice() {
+        const sortedCombo = checkedSticker.slice().sort().join(',');
+        const result = juiceMap[sortedCombo];
+        const downloadBtn = document.getElementById('gt-show-btn-save');
+
+        downloadBtn.addEventListener('click', () => {
+            const image = document.getElementById('gt-juice-img');
+            const link = document.createElement('a');
+            link.href = image.src;
+            link.download = result || 'my-juice.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    downloadJuice();
 
     function closeJuice() {
         const closeBtn = document.getElementById('gt-show-btn-close')
@@ -420,18 +461,19 @@
 
     goToTop();
 
-    function showGoToTopBtn(){
+    function showGoToTopBtn() {
         const scrollY = window.scrollY;
         const triggerSection = document.getElementById('gt-6')
-        if(scrollY > triggerSection.offsetTop){
+        if (scrollY > triggerSection.offsetTop) {
             btn.style.opacity = 1;
             btn.style.visibility = 'visible';
-        } else{
+        } else {
             btn.style.opacity = 0;
             btn.style.visibility = 'hidden';
         }
     }
 
     window.addEventListener('scroll', showGoToTopBtn)
+
 
 })();
